@@ -1,0 +1,94 @@
+<div class="sidenav" >
+    <ul class="list-unstyled quick-links">
+      <li class="main_link"><a class="main_link" href="javascript:void();"><i class="pi pi-home"></i>Home</a></li>
+
+<li class="main_link">
+        <a href="#paymentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+            <i class="pi pi-id-card"></i>Payment Transaction</a>
+
+        
+</li>
+<ul class="collapse list-unstyled" id="paymentSubmenu">
+    <li class="sub_link"><a class="sub_anchs" href="javascript:void();">Create Transaction</a></li>
+    <li class="sub_link" ><a class="sub_anchs"  href="javascript:void();">Bulk Transaction</a></li>
+    
+</ul>
+
+
+    <li class="main_link">
+        <a href="#backSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+            <i class="pi pi-briefcase"></i> Back Office</a>
+
+    </li>
+            <ul class="collapse list-unstyled" id="backSubMenu">
+                <li class="sub_link"><a class="sub_anchs" href="javascript:void();">Stop Cheque</a></li>
+                <li class="sub_link"><a class="sub_anchs" href="javascript:void();">CBS Posting</a></li>
+                
+            </ul>
+    <li class="main_link">
+        <a href="#instrumentSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+            <i class="pi pi-refresh"></i>Instrument Processing</a>
+
+    </li>
+            <ul class="collapse list-unstyled" id="instrumentSubMenu">
+                <li class="sub_link"><a class="sub_anchs" href="javascript:void();">Instrument Printing</a></li>
+                <li class="sub_link"><a class="sub_anchs" href="javascript:void();">Instrument Re-print</a></li>
+                
+            </ul>
+  </ul>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
+    <a class="navbar-brand" href="javascript:void();">
+      Brand
+    </a>
+  
+    <button class="navbar-toggler" type="button"
+    (click)="toggleNavbar()">
+<span class="navbar-toggler-icon"></span>
+</button>
+  
+  
+<div class="collapse navbar-collapse"
+[ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto">
+          
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void();">Payments</a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/adminpage/formtemplate']">Transactions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void();">Bank signatories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void();">Vendor</a>
+        </li>
+        
+      </ul>
+      
+     
+    <ul class="navbar-nav ml-auto navbar-right-top">
+        <form class="form-inline my-2 my-lg-0">
+       
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            
+        </form>
+        <li class=" dropdown ui-sm-2 nav-user mr-sm-2" style="float:right;">
+            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="pi pi-ellipsis-v"></i></a>
+            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                <a class="dropdown-item" [routerLink]="['/adminpage/formtemplate']"><i class="pi pi-users"></i>Dynamic Forms</a>
+                <a class="dropdown-item"  [routerLink]="['/adminpage/resetpassword']"><i class="pi pi-user-edit"></i>Setting</a>
+                <a class="dropdown-item"  [routerLink]="['/adminpage/templatecreator']"><i class="pi pi-user-edit"></i>Template Creator</a>
+                <button class="dropdown-item" (click)='logout()'><a><i class="pi pi-sign-out"></i>Logout</a></button>
+            </div>
+        </li>  
+    </ul>
+
+    </div>
+    
+  </nav>
+  
+    
