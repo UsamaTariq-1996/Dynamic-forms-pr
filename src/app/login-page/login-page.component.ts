@@ -3,6 +3,8 @@ import { MessageService } from "primeng/api";
 import { Router } from "@angular/router";
 import { UserauthService } from "../userauth.service";
 import { first } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: "app-login-page",
@@ -13,12 +15,16 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private router: Router,
-    private authService: UserauthService
+    private authService: UserauthService,
+    private http:HttpClient
   ) {}
 
   userName:string;
   password:string;
-  ngOnInit() {}
+  ipAddress: '';
+  ngOnInit() {
+    this.getIPAddress();
+  }
 
 
      loginUser() {
@@ -53,5 +59,12 @@ export class LoginPageComponent implements OnInit {
   }
   changePassword() {
     this.router.navigateByUrl("/changepassword");
+  }
+  getIPAddress()
+  {
+    
+    this.http.get("http://localhost:4200").subscribe((res:any)=>{
+      this.ipAddress = res.ip;
+    });
   }
 }

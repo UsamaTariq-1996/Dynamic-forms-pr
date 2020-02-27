@@ -1,9 +1,21 @@
 <div class="sidenav" >
-    <ul class="list-unstyled quick-links">
-      <li class="main_link"><a class="main_link" href="javascript:void();"><i class="pi pi-home"></i>Home</a></li>
+    <ul class="list-unstyled quick-links" *ngFor = "let link of links">
+      <li *ngIf="!link.sublinks" class="main_link"><a class="main_link" [routerLink]="[link.link]" ><i class="pi pi-home"></i>{{link.name}}</a></li>
+      
+      <li class="main_link" *ngIf="link.sublinks">
+        <a href="#paymentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+            <i class="pi pi-id-card"></i>{{link.name}}</a>
+
+        
+</li>
+<ul class="collapse list-unstyled" id="paymentSubmenu" *ngFor = "let lin of link.sublink">
+    <li class="sub_link"><a class="sub_anchs" [routerLink]="[lin.link1]">{{lin.name}}</a></li>
+    
+</ul>
+      <!-- <li class="main_link"><a class="main_link" href="javascript:void();"><i class="pi pi-home"></i>Home</a></li>
 
 <li class="main_link">
-        <a href="#paymentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+        <a [routerLink]="" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
             <i class="pi pi-id-card"></i>Payment Transaction</a>
 
         
@@ -34,7 +46,7 @@
                 <li class="sub_link"><a class="sub_anchs" href="javascript:void();">Instrument Printing</a></li>
                 <li class="sub_link"><a class="sub_anchs" href="javascript:void();">Instrument Re-print</a></li>
                 
-            </ul>
+            </ul> -->
   </ul>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { Router } from '@angular/router';
+import { NavlinksService } from './navlinks.service';
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
@@ -9,13 +10,22 @@ import { Router } from '@angular/router';
 export class AdminPageComponent implements OnInit {
   items: MenuItem[];
   visibleSidebar1: boolean;
-  constructor(private router:Router) { }
+  constructor(private router:Router,private navlinkservice: NavlinksService) { }
   navbarOpen = false;
-
+  public links = [];
  
   ngOnInit() {
     
+this.getLinks();
+}
 
+getLinks() {
+  this.navlinkservice
+    .getLinks()
+    .subscribe(res => {
+      console.log("Eae", res);
+      this.links = res;
+    });
 }
 toggleNavbar() {
   this.navbarOpen = !this.navbarOpen;
